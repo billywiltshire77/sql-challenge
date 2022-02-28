@@ -26,4 +26,40 @@ select d.dept_no, d.dept_name, dm.emp_no, e.last_name, e.first_name
 from department_manager as dm
 left join departments as d on dm.dept_no = d.dept_no
 left join employees as e on e.emp_n = dm.emp_no;
+
+-- Data Analysis Query 4:
+
+select de.emp_no, e.last_name, e.first_name, d.dept_name
+from department_employees as de
+left join departments as d on d.dept_no = de.dept_no
+left join employees as e on e.emp_n = de.emp_no;
+
+-- Data Analysis Query 5:
+
+select first_name, last_name, sex
+from employees
+where first_name = 'Hercules' and last_name like 'B%';
+
+-- Data Analysis Query 6:
+
+select de.emp_no, e.last_name, e.first_name, d.dept_name
+from department_employees as de
+left join employees as e on e.emp_n = de. emp_no
+left join departments as d on d.dept_no = de.dept_no
+where d.dept_name = 'Sales';
+
+-- Data Analysis Query 7:
+
+select de.emp_no, e.last_name, e.first_name, d.dept_name
+from department_employees as de
+left join employees as e on e.emp_n = de. emp_no
+left join departments as d on d.dept_no = de.dept_no
+where d.dept_name = 'Sales' or d.dept_name = 'Development';
+
+-- Data Analysis Query 8:
+
+select last_name, count(last_name)
+from employees
+group by last_name 
+order by 2 desc;
 	
